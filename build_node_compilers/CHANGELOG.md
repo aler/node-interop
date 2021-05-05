@@ -1,3 +1,7 @@
+# 1.0.0
+
+- Support NNBD
+
 # 0.3.2
 
 - Allowed Dart2JS to run in unsound null-safety mode.
