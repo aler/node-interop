@@ -1,3 +1,7 @@
+## 2.0.0
+
+- NNBD: Bump sdk to 2.12.0
+
 ## 1.0.1
 
 - Fixed: some headers could be missing for certain request types (#77)

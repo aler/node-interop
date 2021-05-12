@@ -12,10 +12,10 @@ import 'package:test/test.dart';
 
 void main() {
   group('HTTP client', () {
-    HttpServer server;
+    late HttpServer server;
 
     setUpAll(() async {
-      server = await HttpServer.bind('127.0.0.1', 8181);
+      server = await (HttpServer.bind('127.0.0.1', 8181) as Future<HttpServer>);
       server.listen((request) async {
         if (request.uri.path == '/test') {
           final body = await request.map(utf8.decode).join();
@@ -24,7 +24,7 @@ void main() {
           request.response.headers.set('set-cookie',
               ['JSESSIONID=verylongid; Path=/somepath; HttpOnly']);
           request.response.statusCode = HttpStatus.ok;
-          if (body != null && body.isNotEmpty) {
+          if (body.isNotEmpty) {
             request.response.write(body);
           } else {
             request.response.write('ok');
