@@ -50,7 +50,7 @@ class NodeEntrypointBuilder implements Builder {
   // TODO: Remove --no-sound-null-safety after migrating to nnbd.
   // v1.0.0 (05/05/2021) removing this causes the dart2js bootstrap test to fail
   const NodeEntrypointBuilder(this.webCompiler,
-      {this.dart2JsArgs = const ['--no-sound-null-safety']});
+      {this.dart2JsArgs = const []});
 
   factory NodeEntrypointBuilder.fromOptions(BuilderOptions options) {
     validateOptions(
